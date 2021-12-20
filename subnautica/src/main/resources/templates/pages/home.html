@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Subnautica API</title>
+  </head>
+  <body>
+    <main>
+      <form method="post" th:action="@{/fauna}" th:object="${objFauna}">
+        <label>Nome:</label>
+        <input type="text" th:field="*{name}" required />
+        
+        <label>Bioma:</label>
+        <select th:field="*{biome}">
+          <option
+            th:each="biome : ${T(br.com.joaoflach.subnautica.model.Biome).values()}"
+            th:value="${biome}"
+            th:text="${biome}"
+          ></option>
+        </select>
+          
+          <label>Tipo:</label>
+        <select th:field="*{type}">
+          <option
+            th:each="type : ${T(br.com.joaoflach.subnautica.model.Type).values()}"
+            th:value="${type}"
+            th:text="${type}"
+          ></option>
+        </select>
+          
+          <div>
+          <button type="submit">Cadastrar</button>
+          <button type="reset">Limpar todos os dados</button>
+        </div>
+      </form>
+    </main>
+	</body>
+  <form method="post" th:action="@{/fauna}">
+    
+  </form>
+</html>
